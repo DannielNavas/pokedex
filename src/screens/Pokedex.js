@@ -1,13 +1,13 @@
 import React from 'react';
 import { SafeAreaView, Text } from 'react-native';
 
-const Pokedex = () => {
+const PokedexScreen = () => {
   return (
     <SafeAreaView>
-      <Text>Pokedex</Text>
+      <Text>PokedexScreen</Text>
     </SafeAreaView>
   );
 }
 
 
-export default Pokedex;
+export default PokedexScreen;

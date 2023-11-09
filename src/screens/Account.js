@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, Text } from 'react-native';
 
-const Account = () => {
+const AccountScreen = () => {
   return (
     <SafeAreaView>
       <Text>Acount</Text>
@@ -10,4 +10,4 @@ const Account = () => {
 }
 
 
-export default Account;
+export default AccountScreen;

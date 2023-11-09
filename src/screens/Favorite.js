@@ -1,12 +1,12 @@
 import React from 'react';
 import { SafeAreaView, Text } from 'react-native';
 
-const Favorite = () => {
+const FavoriteScreen = () => {
   return (
     <SafeAreaView>
-      <Text>Favorite</Text>
+      <Text>FavoriteScreen</Text>
     </SafeAreaView>
   );
 }
 
-export default Favorite;
+export default FavoriteScreen;
