@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { getPokemonDetailsByUrlApi, getPokemonsApi } from '../api/pokemon';
+import PokemontList from '../components/PokemontList';
 
 const PokedexScreen = () => {
     const [pokemons, setPokemons] = useState([]);
@@ -23,14 +24,14 @@ const PokedexScreen = () => {
           order: pokemonDetail.order,
         });
       }
-      setPokemons(...pokemons, ...pokemonsArray);
+      setPokemons([...pokemons, ...pokemonsArray]);
     } catch (error) {
       console.log(error);
     }
   }
   return (
     <SafeAreaView>
-      <Text>PokedexScreen</Text>
+      <PokemontList pokemons={pokemons} />
     </SafeAreaView>
   );
 }
