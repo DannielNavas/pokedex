@@ -14,7 +14,7 @@ const PokemontList = ({ pokemons, loadPokemons, isNext }) => {
       keyExtractor={(pokemon) => String(pokemon.id)}
       renderItem={({ item }) => <PokemonCard pokemon={item} />}
       contentContainerStyle={styles.flatListContentContainer}
-      onEndReached={isNext && loadMore}
+      onEndReached={loadMore}
       onEndReachedThreshold={0.1}
       ListFooterComponent={
         isNext && (
