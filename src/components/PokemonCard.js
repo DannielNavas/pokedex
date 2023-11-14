@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { capitalize } from 'lodash';
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
@@ -9,8 +10,9 @@ const PokemonCard = ({ pokemon }) => {
     backgroundColor: pokemonColor,
     ...styles.bgStyles,
   };
+  const navigation = useNavigation();
   const goToPokemon = () => {
-    console.log('Go to pokemon', pokemon.name);
+    navigation.navigate('Pokemon', { pokemonId: pokemon.id });
   }
   return (
     <TouchableWithoutFeedback onPress={goToPokemon}>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-const Pokemon = () => {
+const Pokemon = ({ route, navigation }) => {
   return (
     <View>
       <Text>Pokemon</Text>
