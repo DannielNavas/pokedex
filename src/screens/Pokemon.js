@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet } from "react-native";
 import { getPokemonDetailsApi } from '../api/pokemon';
 import Header from '../components/pokemon/Header';
+import Stats from "../components/pokemon/Stats";
 import Type from '../components/pokemon/Type';
 
 const Pokemon = ({ route: { params }, navigation }) => {
@@ -14,6 +15,7 @@ const Pokemon = ({ route: { params }, navigation }) => {
         const response = await getPokemonDetailsApi(pokemonId);
         setPokemon(response);
       } catch (error) {
+        console.log(error);
         navigation.goBack();
       }
     })();
@@ -30,6 +32,7 @@ const Pokemon = ({ route: { params }, navigation }) => {
         type={pokemon.types[0].type.name}
       />
       <Type types={pokemon.types} />
+      <Stats stats={pokemon.stats} />
     </ScrollView>
   );
 }
