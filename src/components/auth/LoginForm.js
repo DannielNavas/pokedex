@@ -1,16 +1,29 @@
 import { useFormik } from 'formik';
-import React from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { Button, StyleSheet, Text, TextInput, ToastAndroid, View } from 'react-native';
 import * as Yup from 'yup';
+import { user } from "../../utils/userDB";
 
 const LoginForm = () => {
+  const [error, setError] = useState(null);
 
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
     validateOnChange: false,
     onSubmit: (formData) => {
-      console.log(formData);
+      setError(null);
+      const { username, password } = formData;
+      if(username !== user.username || password !== user.password) {
+        console.log('Login incorrecto');
+        setError('Los datos ingresados son incorrectos');
+        ToastAndroid.show(
+          "El usuario o contraseña son incorrectos",
+          ToastAndroid.SHORT
+        );
+      } else {
+        console.log('Login correcto');
+      }
     },
   });
 
@@ -35,6 +48,7 @@ const LoginForm = () => {
       <Button title="Iniciar sesión" onPress={formik.handleSubmit} />
       <Text style={styles.error}>{formik.errors.username}</Text>
       <Text style={styles.error}>{formik.errors.password}</Text>
+      <Text style={styles.error}>{error}</Text>
     </View>
   );
 }
