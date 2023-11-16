@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginHorizontal: 20,
+    marginTop: 20,
   },
   content: {
     marginHorizontal: 20,
@@ -63,6 +64,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginHorizontal: 20,
+    marginTop: 20,
   }
 });
 
