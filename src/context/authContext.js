@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(undefined);
 
   const login = (userData) => {
-    console.log(userData)
     setAuth(userData);
   };
   const logout = () => {

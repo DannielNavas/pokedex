@@ -8,7 +8,6 @@ import { user, userDetails } from "../../utils/userDB";
 const LoginForm = () => {
   const [error, setError] = useState(null);
   const { login } = useAuth();
-  console.log(useAuth());
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
