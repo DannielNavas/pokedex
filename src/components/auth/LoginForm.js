@@ -2,11 +2,13 @@ import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, ToastAndroid, View } from 'react-native';
 import * as Yup from 'yup';
-import { user } from "../../utils/userDB";
+import useAuth from '../../hooks/useAuth';
+import { user, userDetails } from "../../utils/userDB";
 
 const LoginForm = () => {
   const [error, setError] = useState(null);
-
+  const { login } = useAuth();
+  console.log(useAuth());
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
@@ -22,7 +24,11 @@ const LoginForm = () => {
           ToastAndroid.SHORT
         );
       } else {
-        console.log('Login correcto');
+        login(userDetails);
+        ToastAndroid.show(
+          "Bienvenido",
+          ToastAndroid.SHORT
+        );
       }
     },
   });

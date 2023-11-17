@@ -2,9 +2,10 @@ import React from 'react';
 import { View } from 'react-native';
 import LoginForm from '../components/auth/LoginForm';
 import UserData from '../components/auth/UserData';
+import useAuth from '../hooks/useAuth';
 
 const AccountScreen = () => {
-  const auth = null
+  const { auth } = useAuth();
   return (
     <View>
       {auth ? (
