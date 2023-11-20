@@ -27,8 +27,12 @@ export const getPokemonFavoriteApi = async () => {
 }
 
 export const isPokemonFavorite = async (id) => {
-  const favorites = await getPokemonFavoriteApi();
-  return includes(favorites, id);
+  try {
+    const favorites = await getPokemonFavoriteApi();
+    return includes(favorites, id);
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const removePokemonFavorite = async (id) => {
