@@ -36,7 +36,12 @@ export const isPokemonFavorite = async (id) => {
 };
 
 export const removePokemonFavorite = async (id) => {
-  const favorites = await getPokemonFavoriteApi();
-  const newFavorites = pull(favorites, id);
-  await AsyncStorage.setItem("favorite", JSON.stringify(newFavorites));
+  try {
+    const favorites = await getPokemonFavoriteApi();
+    const newFavorites = pull(favorites, id);
+    await AsyncStorage.setItem("favorite", JSON.stringify(newFavorites));
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
 }

@@ -31,7 +31,12 @@ const Favorite = ({ id }) => {
     }
   }
   const removeFavorites = async () => {
-    await removePokemonFavorite(id);
+    try {
+      await removePokemonFavorite(id);
+      onReloadCheckFavorite();
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   const onReloadCheckFavorite = () => {
