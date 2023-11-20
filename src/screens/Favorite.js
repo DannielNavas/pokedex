@@ -1,8 +1,8 @@
 import { useFocusEffect } from "@react-navigation/native";
 import React, { useCallback, useState } from "react";
-import { Text } from 'react-native';
 import { getPokemonFavoriteApi } from "../api/favorite";
 import { getPokemonDetailsApi } from "../api/pokemon";
+import NoLogged from "../components/NoLogged";
 import PokemontList from "../components/PokemontList";
 import useAuth from "../hooks/useAuth";
 
@@ -36,7 +36,7 @@ const FavoriteScreen = () => {
   );
 
   return !auth ? (
-    <Text>Not logged</Text>
+    <NoLogged />
   ) : (
     <PokemontList pokemons={pokemons} loadPokemons={() => console.log('load')}  />
   );
